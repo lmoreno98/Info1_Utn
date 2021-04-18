@@ -54,7 +54,7 @@ int factorial(float *num1, float *resultado)
 // main.c
 int main()
 {
-    int complete;
+    int verif = 1;
     float num1,num2,resultado,resultado1;
     char ope;
     printf("Ingrese el primer numero: ");
@@ -67,36 +67,36 @@ int main()
     switch(ope)
     {
         case '+':
-            complete = suma(&num1,&num2,&resultado);
+            suma(&num1,&num2,&resultado);
             break;
         case '-':
-            complete = resta(&num1,&num2,&resultado);
+            resta(&num1,&num2,&resultado);
             break;
         case '*':
-            complete = multiplicacion(&num1,&num2,&resultado);
+            multiplicacion(&num1,&num2,&resultado);
             break;
         case '/':
-            complete = division(&num1,&num2,&resultado);
+            verif = division(&num1,&num2,&resultado);
             break;
         case '!':
-            complete = factorial(&num1,&resultado);
+            verif = factorial(&num1,&resultado);
             factorial(&num2,&resultado1);
             break;
         
     }
     
-    if (complete == 0)
+    if (verif == 0)
     {
         printf("Valor no es divisible por 0");
     }
-    else if (complete == 2)
+    else if (verif == 2)
     {
-        printf("%f%c = %f\n",num1,ope,resultado);
-        printf("%f%c = %f",num2,ope,resultado1);
+        printf("%.2f%c = %.2f\n",num1,ope,resultado);
+        printf("%.2f%c = %.2f",num2,ope,resultado1);
     }
     else
     {
-        printf("%f %c %f = %f", num1, ope, num2, resultado);   
+        printf("%.2f %c %.2f = %.2f", num1, ope, num2, resultado);   
     }
     
     return 0;
